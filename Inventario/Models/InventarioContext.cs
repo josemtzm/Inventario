@@ -8,8 +8,8 @@ namespace Inventario.Models
         {
             Database.EnsureCreated();
         }
-        public DbSet<Usuarios> Usuario { get; set; }
-        public DbSet<Equipos> Equipo { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Equipo> Equipos { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

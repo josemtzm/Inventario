@@ -22,7 +22,8 @@ namespace Inventario
                     .SetBasePath(appEnv.ApplicationBasePath)
                     .AddJsonFile("appsettings.json")
                     .AddEnvironmentVariables();
-            
+            Configuration = builder.Build();
+
             // if (env.IsDevelopment())
             // {
             //     // For more details on using the user secret store see http://go.microsoft.com/fwlink/?LinkID=532709
@@ -35,7 +36,7 @@ namespace Inventario
             // Configuration["Data:InventarioContextConnection"];
         }
 
-        
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)

@@ -8,8 +8,8 @@ namespace Inventario.Models
 {
     class Asignaciones
     {
-        public Usuarios USUARIO_ID { get; set; }
-        public Equipos NO_SERIE { get; set; }
+        public Usuario USUARIO_ID { get; set; }
+        public Equipo NO_SERIE { get; set; }
         public bool ASIGNADO { get; set; }
         public DateTime FECHA_ALTA { get; set; }
         public DateTime FECHA_BAJA { get; set; }
