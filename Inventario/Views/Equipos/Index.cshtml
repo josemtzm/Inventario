@@ -18,12 +18,12 @@
             @Html.DisplayNameFor(model => model.MODELO)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TIPO_EQUIPO_ID)
+            @Html.DisplayNameFor(model => model.TipoEquipo.TipoEquipo)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MARCA_EQUIPO_ID)
+            @Html.DisplayNameFor(model => model.MarcaEquipo.MarcaEquipo)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.PROCESADOR)
         </th>
         <th>
@@ -39,21 +39,21 @@
             @Html.DisplayNameFor(model => model.MAC_WIFI)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NO_SERIE_TECLADO)
+            @Html.DisplayNameFor(model => model.Teclado.DESCRIPCION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NO_SERIE_MOUSE)
+            @Html.DisplayNameFor(model => model.Mouse.DESCRIPCION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NO_SERIE_MONITOR)
+            @Html.DisplayNameFor(model => model.Monitor.DESCRIPCION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NO_SERIE_DOCK_STATION)
+            @Html.DisplayNameFor(model => model.DockStation.DESCRIPCION)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NO_SERIE_CANDADO)
+            @Html.DisplayNameFor(model => model.Candado.DESCRIPCION)
         </th>
-        <th></th>
+        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
@@ -65,12 +65,12 @@
             @Html.DisplayFor(modelItem => item.MODELO)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TIPO_EQUIPO_ID)
+            @Html.DisplayFor(modelItem => item.TipoEquipo.TipoEquipo)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.MARCA_EQUIPO_ID)
+            @Html.DisplayFor(modelItem => item.MarcaEquipo.MarcaEquipo)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PROCESADOR)
         </td>
         <td>
@@ -86,24 +86,24 @@
             @Html.DisplayFor(modelItem => item.MAC_WIFI)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NO_SERIE_TECLADO)
+            @Html.DisplayFor(modelItem => item.Teclado.DESCRIPCION)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NO_SERIE_MOUSE)
+            @Html.DisplayFor(modelItem => item.Mouse.DESCRIPCION)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NO_SERIE_MONITOR)
+            @Html.DisplayFor(modelItem => item.Monitor.DESCRIPCION)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NO_SERIE_DOCK_STATION)
+            @Html.DisplayFor(modelItem => item.DockStation.DESCRIPCION)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NO_SERIE_CANDADO)
-        </td>
+            @Html.DisplayFor(modelItem => item.Candado.DESCRIPCION)
+        </td>*@
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

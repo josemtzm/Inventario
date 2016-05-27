@@ -3,6 +3,10 @@ using System.Net;
 using Inventario.Models;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Data.Entity;
+using Inventario.ViewModels;
+using Microsoft.AspNet.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
 
 namespace Inventario.Controllers
 {
@@ -39,19 +43,28 @@ namespace Inventario.Controllers
         // GET: Equipos/Create
         public ActionResult Create()
         {
-            return View();
+            var equipos = _context.Equipos.OrderBy(t => t.SERIE).ToList();
+            return View(equipos);
         }
-
+        
         // POST: Equipos/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("ID,SERIE,MODELO,TIPO_EQUIPO_ID,MARCA_EQUIPO_ID,PROCESADOR,MEMORIA,DISCO_DURO,MAC_ETH,MAC_WIFI,NO_SERIE_TECLADO,NO_SERIE_MOUSE,NO_SERIE_MONITOR,NO_SERIE_DOCK_STATION,NO_SERIE_CANDADO")] Equipo equipos)
+        public ActionResult Create(Equipo equipos)
         {
             if (ModelState.IsValid)
             {
                 _context.Equipos.Add(equipos);
+                _context.TiposEquipo.Add(equipos.TipoEquipo);
+                _context.MarcasEquipo.Add(equipos.MarcaEquipo);
+                _context.Teclados.Add(equipos.Teclado);
+                _context.Mouses.Add(equipos.Mouse);
+                _context.Monitores.Add(equipos.Monitor);
+                _context.Docks.Add(equipos.DockStation);
+                _context.Candados.Add(equipos.Candado);
+
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -67,6 +80,8 @@ namespace Inventario.Controllers
                 return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
             }
             Equipo equipos = _context.Equipos.FirstOrDefault(e => e.ID == id);
+            var TipoEquipos = _context.TiposEquipo;
+            ViewBag.TiposEquipo = TipoEquipos;
             if (equipos == null)
             {
                 return HttpNotFound();
