@@ -21,7 +21,9 @@ namespace Inventario.Controllers
         // GET: Equipos
         public ActionResult Index()
         {
-            var equipos = _context.Equipos.OrderBy(t => t.SERIE).ToList();
+            var equipos = _context.Equipos.OrderBy(t => t.SERIE)
+                .Include(x => x.MarcaEquipo)
+                .Include(x => x.TipoEquipo).ToList();
             return View(equipos);
         }
 
@@ -43,7 +45,18 @@ namespace Inventario.Controllers
         // GET: Equipos/Create
         public ActionResult Create()
         {
-            var equipos = _context.Equipos.OrderBy(t => t.SERIE).ToList();
+            var equipos = _context.Equipos.OrderBy(t => t.SERIE)
+                //.Include(x => x.MarcaEquipo)
+                //.Include(x => x.TipoEquipo)
+                .ToList();
+            // Dropdown Tipo de Equipo
+            //var TipoEquipos = new List<TIPO_EQUIPO>();
+            //TipoEquipos = _context.TiposEquipo.ToList();
+            //ViewBag.TipoEquipos = new SelectList(TipoEquipos, "Id", "TipoEquipo");
+            ////Dropdown Marca de Equipo
+            //var MarcasEquipos = new List<MARCA_EQUIPO>();
+            //MarcasEquipos = _context.MarcasEquipo.ToList();
+            //ViewBag.MarcasEquipos = new SelectList(MarcasEquipos, "Id", "MarcaEquipo");
             return View(equipos);
         }
         
@@ -80,12 +93,19 @@ namespace Inventario.Controllers
                 return new HttpStatusCodeResult((int)HttpStatusCode.BadRequest);
             }
             Equipo equipos = _context.Equipos.FirstOrDefault(e => e.ID == id);
-            var TipoEquipos = _context.TiposEquipo;
-            ViewBag.TiposEquipo = TipoEquipos;
+
             if (equipos == null)
             {
                 return HttpNotFound();
             }
+            // Dropdown Tipo de Equipo
+            var TipoEquipos = new List<TIPO_EQUIPO>();
+            TipoEquipos = _context.TiposEquipo.ToList();
+            ViewBag.TipoEquipos = new SelectList(TipoEquipos, "Id", "TipoEquipo");
+            //Dropdown Marca de Equipo
+            var MarcasEquipos = new List<MARCA_EQUIPO>();
+            MarcasEquipos = _context.MarcasEquipo.ToList();
+            ViewBag.MarcasEquipos = new SelectList(MarcasEquipos, "Id", "MarcaEquipo");
             return View(equipos);
         }
 
@@ -94,7 +114,7 @@ namespace Inventario.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind("ID,SERIE,MODELO,TIPO_EQUIPO_ID,MARCA_EQUIPO_ID,PROCESADOR,MEMORIA,DISCO_DURO,MAC_ETH,MAC_WIFI,NO_SERIE_TECLADO,NO_SERIE_MOUSE,NO_SERIE_MONITOR,NO_SERIE_DOCK_STATION,NO_SERIE_CANDADO")] Equipo equipos)
+        public ActionResult Edit([Bind("ID,SERIE,MODELO,TipoEquipo,MarcaEquipo,PROCESADOR,MEMORIA,DISCO_DURO,MAC_ETH,MAC_WIFI,NO_SERIE_TECLADO,NO_SERIE_MOUSE,NO_SERIE_MONITOR,NO_SERIE_DOCK_STATION,NO_SERIE_CANDADO")] Equipo equipos)
         {
             if (ModelState.IsValid)
             {

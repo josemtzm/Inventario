@@ -16,8 +16,10 @@ namespace Inventario.Models
         public string SERIE { get; set; }
         [Display(Name = "Modelo")]
         public string MODELO { get; set; }
-        public TIPO_EQUIPO TipoEquipo { get; set; }
-        public MARCA_EQUIPO MarcaEquipo { get; set; }
+        [ForeignKey("TipoEquipoId")]
+        public virtual TIPO_EQUIPO TipoEquipo { get; set; }
+        [ForeignKey("MarcaEquipoId")]
+        public virtual MARCA_EQUIPO MarcaEquipo { get; set; }
         [Display(Name = "Procesador")]
         public string PROCESADOR { get; set; }
         [Display(Name = "Memoria")]

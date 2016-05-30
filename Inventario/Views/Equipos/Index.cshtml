@@ -23,37 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.MarcaEquipo.MarcaEquipo)
         </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.PROCESADOR)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MEMORIA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DISCO_DURO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MAC_ETH)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.MAC_WIFI)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Teclado.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mouse.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Monitor.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DockStation.DESCRIPCION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Candado.DESCRIPCION)
-        </th>
-        <th></th>*@
     </tr>
 
 @foreach (var item in Model) {
@@ -70,36 +39,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.MarcaEquipo.MarcaEquipo)
         </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.PROCESADOR)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MEMORIA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DISCO_DURO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MAC_ETH)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.MAC_WIFI)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Teclado.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mouse.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Monitor.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.DockStation.DESCRIPCION)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Candado.DESCRIPCION)
-        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |

@@ -1,0 +1,24 @@
+@model Inventario.Models.MARCA_EQUIPO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MARCA_EQUIPO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MarcaEquipo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MarcaEquipo)
+        </dd>
+    </dl>
+</div>
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</p>
