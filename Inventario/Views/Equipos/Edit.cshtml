@@ -37,7 +37,7 @@
                 @Html.DropDownListFor(model => model.TipoEquipo.Id, (IEnumerable<SelectListItem>)ViewBag.TipoEquipos)
             </div>
         </div>
-
+        tec
         <div class="form-group">
             @Html.LabelFor(model => model.MarcaEquipo.MarcaEquipo, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        @*<div class="form-group">
+        <div class="form-group">
             @Html.LabelFor(model => model.PROCESADOR, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.PROCESADOR, new { htmlAttributes = new { @class = "form-control" } })
@@ -83,47 +83,42 @@
                 @Html.EditorFor(model => model.MAC_WIFI, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MAC_WIFI, "", new { @class = "text-danger" })
             </div>
-        </div>*@
+        </div>
 
-        @*<div class="form-group">
-            @Html.LabelFor(model => model.NO_SERIE_TECLADO, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Teclado.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NO_SERIE_TECLADO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NO_SERIE_TECLADO, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Teclado.Id, (IEnumerable<SelectListItem>)ViewBag.Teclados)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NO_SERIE_MOUSE, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Mouse.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NO_SERIE_MOUSE, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NO_SERIE_MOUSE, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Mouse.Id, (IEnumerable<SelectListItem>)ViewBag.Mouses)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NO_SERIE_MONITOR, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Monitor.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NO_SERIE_MONITOR, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NO_SERIE_MONITOR, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Monitor.Id, (IEnumerable<SelectListItem>)ViewBag.Monitores)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NO_SERIE_DOCK_STATION, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.DockStation.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NO_SERIE_DOCK_STATION, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NO_SERIE_DOCK_STATION, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.DockStation.Id, (IEnumerable<SelectListItem>)ViewBag.Docks)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.NO_SERIE_CANDADO, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Candado.DESCRIPCION, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.NO_SERIE_CANDADO, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.NO_SERIE_CANDADO, "", new { @class = "text-danger" })
+                @Html.DropDownListFor(model => model.Candado.Id, (IEnumerable<SelectListItem>)ViewBag.Candados)
             </div>
-        </div>*@
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">

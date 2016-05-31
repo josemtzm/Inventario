@@ -45,19 +45,12 @@ namespace Inventario.Controllers
         // GET: Equipos/Create
         public ActionResult Create()
         {
-            var equipos = _context.Equipos.OrderBy(t => t.SERIE)
-                //.Include(x => x.MarcaEquipo)
-                //.Include(x => x.TipoEquipo)
-                .ToList();
-            // Dropdown Tipo de Equipo
-            //var TipoEquipos = new List<TIPO_EQUIPO>();
-            //TipoEquipos = _context.TiposEquipo.ToList();
-            //ViewBag.TipoEquipos = new SelectList(TipoEquipos, "Id", "TipoEquipo");
-            ////Dropdown Marca de Equipo
-            //var MarcasEquipos = new List<MARCA_EQUIPO>();
-            //MarcasEquipos = _context.MarcasEquipo.ToList();
-            //ViewBag.MarcasEquipos = new SelectList(MarcasEquipos, "Id", "MarcaEquipo");
-            return View(equipos);
+            //var equipos = _context.Equipos.OrderBy(t => t.SERIE)
+            //    //.Include(x => x.MarcaEquipo)
+            //    //.Include(x => x.TipoEquipo)
+            //    .ToList();
+            FillDropDown();
+            return View();
         }
         
         // POST: Equipos/Create
@@ -98,7 +91,13 @@ namespace Inventario.Controllers
             {
                 return HttpNotFound();
             }
-            // Dropdown Tipo de Equipo
+            FillDropDown();
+            return View(equipos);
+        }
+
+        private void FillDropDown()
+        {
+            //Dropdown Tipo de Equipo
             var TipoEquipos = new List<TIPO_EQUIPO>();
             TipoEquipos = _context.TiposEquipo.ToList();
             ViewBag.TipoEquipos = new SelectList(TipoEquipos, "Id", "TipoEquipo");
@@ -106,7 +105,26 @@ namespace Inventario.Controllers
             var MarcasEquipos = new List<MARCA_EQUIPO>();
             MarcasEquipos = _context.MarcasEquipo.ToList();
             ViewBag.MarcasEquipos = new SelectList(MarcasEquipos, "Id", "MarcaEquipo");
-            return View(equipos);
+            //Dropdown Teclado
+            var Teclados = new List<TECLADO>();
+            Teclados = _context.Teclados.ToList();
+            ViewBag.Teclados = new SelectList(Teclados, "Id", "DESCRIPCION");
+            //Dropdown Mouses
+            var Mouses = new List<MOUSE>();
+            Mouses = _context.Mouses.ToList();
+            ViewBag.Mouses = new SelectList(Mouses, "Id", "DESCRIPCION");
+            //Dropdown Monitores
+            var Monitores = new List<MONITOR>();
+            Monitores = _context.Monitores.ToList();
+            ViewBag.Monitores = new SelectList(Monitores, "Id", "DESCRIPCION");
+            //Dropdown Docks
+            var Docks = new List<DOCK_STATION>();
+            Docks = _context.Docks.ToList();
+            ViewBag.Docks = new SelectList(Docks, "Id", "DESCRIPCION");
+            //Dropdown Candados
+            var Candados = new List<CANDADO>();
+            Candados = _context.Candados.ToList();
+            ViewBag.Candados = new SelectList(Candados, "Id", "DESCRIPCION");
         }
 
         // POST: Equipos/Edit/5
